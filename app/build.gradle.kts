@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.gameai"
+    namespace = "com.example.playai"
     compileSdk {
         version = release(37)
     }

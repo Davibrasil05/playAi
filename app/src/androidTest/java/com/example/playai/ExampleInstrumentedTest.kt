@@ -1,4 +1,4 @@
-package com.example.gameai
+package com.example.playai
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

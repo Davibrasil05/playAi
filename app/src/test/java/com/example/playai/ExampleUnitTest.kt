@@ -1,4 +1,4 @@
-package com.example.gameai
+package com.example.playai
 
 import org.junit.Test
 
