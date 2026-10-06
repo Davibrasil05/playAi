@@ -1,4 +1,4 @@
-package com.example.playai
+package io.github.davibrasil05.playai
 
 import org.junit.Test
 
