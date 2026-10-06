@@ -4,13 +4,13 @@ plugins {
 }
 
 android {
-    namespace = "com.example.playai"
+    namespace = "io.github.davibrasil05.playai"
     compileSdk {
         version = release(37)
     }
 
     defaultConfig {
-        applicationId = "com.example.gameai"
+        applicationId = "io.github.davibrasil05.playai"
         minSdk = 24
         targetSdk = 37
         versionCode = 1

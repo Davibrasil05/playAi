@@ -1,4 +1,4 @@
-package com.example.playai.ui.theme
+package io.github.davibrasil05.playai.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

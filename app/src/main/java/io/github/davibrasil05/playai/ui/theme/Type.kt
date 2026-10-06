@@ -1,4 +1,4 @@
-package com.example.playai.ui.theme
+package io.github.davibrasil05.playai.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
@@ -6,7 +6,7 @@ import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
-import com.example.playai.R
+import io.github.davibrasil05.playai.R
 
 // Títulos, nomes de jogos e números grandes
 val DmSerifDisplay = FontFamily(

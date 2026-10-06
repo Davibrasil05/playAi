@@ -1,4 +1,4 @@
-package com.example.playai.ui.theme
+package io.github.davibrasil05.playai.ui.theme
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.lightColorScheme
