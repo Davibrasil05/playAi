@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">GameAi</string>
     <string name="destination_discover">Descubra</string>
     <string name="destination_catalog">Catálogo</string>
     <string name="destination_profile">Perfil</string>
+    <string name ="catalog_open_sample_game">Abrir Jogo 42</string>
+    <string name ="game_detail_title">Jogo #%1$d</string>
 </resources>

@@ -1,5 +1,6 @@
 package io.github.davibrasil05.playai.ui
 
+import android.provider.ContactsContract
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
@@ -16,14 +17,27 @@ import androidx.compose.ui.Modifier
 
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.navigation3.runtime.entryProvider
+import androidx.navigation3.runtime.rememberNavBackStack
+import androidx.navigation3.ui.NavDisplay
 import io.github.davibrasil05.playai.ui.catalog.CatalogScreen
 import io.github.davibrasil05.playai.ui.discover.DiscoverScreen
+import io.github.davibrasil05.playai.ui.gamedetail.GameDetailScreen
+import io.github.davibrasil05.playai.ui.navigation.CatalogRoute
+import io.github.davibrasil05.playai.ui.navigation.DiscoverRoute
+import io.github.davibrasil05.playai.ui.navigation.GameDetailRoute
+import io.github.davibrasil05.playai.ui.navigation.ProfileRoute
 import io.github.davibrasil05.playai.ui.profile.ProfileScreen
 
 @Composable
 fun PlayAiApp() {
     var currentDestination by rememberSaveable{
         mutableStateOf(TopLevelDestination.DISCOVER)}
+
+    val backStacks = TopLevelDestination.entries.associateWith { destination ->
+        rememberNavBackStack(destination.route)
+    }
+    val backStack = backStacks.getValue(currentDestination)
     Scaffold(
         bottomBar = {
             PlayAiNavigationBar(
@@ -32,12 +46,18 @@ fun PlayAiApp() {
             )
         }
     ) { innerPadding ->
-        val modifier = Modifier.padding(innerPadding)
-        when (currentDestination){
-            TopLevelDestination.DISCOVER -> DiscoverScreen(modifier)
-            TopLevelDestination.CATALOG -> CatalogScreen(modifier)
-            TopLevelDestination.PROFILE -> ProfileScreen(modifier)
-        }
+        NavDisplay(
+            backStack = backStack,
+            onBack = {backStack.removeLastOrNull()},
+            modifier = Modifier.padding(innerPadding),
+            entryProvider = entryProvider {
+                entry<DiscoverRoute> {DiscoverScreen()}
+                entry<ProfileRoute> { ProfileScreen()}
+                entry<CatalogRoute> { CatalogScreen(onGameClick = {gameId -> backStack.add(
+                    GameDetailRoute(gameId))})}
+                entry<GameDetailRoute> { route -> GameDetailScreen(gameId = route.gameId) }
+            }
+        )
 
     }
 }

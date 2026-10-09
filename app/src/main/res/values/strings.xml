@@ -3,4 +3,6 @@
     <string name="destination_discover">Discover</string>
     <string name="destination_catalog">Catalog</string>
     <string name ="destination_profile">Profile</string>
+    <string name ="catalog_open_sample_game">Open Game 42</string>
+    <string name ="game_detail_title">Game #%1$d</string>
 </resources>
