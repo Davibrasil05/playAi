@@ -1,6 +1,5 @@
 package io.github.davibrasil05.playai.ui
 
-import android.provider.ContactsContract
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
