@@ -29,6 +29,10 @@ import io.github.davibrasil05.playai.data.repository.DefaultGameRepository
 import io.github.davibrasil05.playai.model.Game
 import androidx.compose.runtime.getValue
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
+import io.github.davibrasil05.playai.ui.components.GameCard
 
 @Composable
 fun CatalogScreen(
@@ -87,19 +91,15 @@ private fun GameList(
     games: List<Game>,
     onGameClick: (gameId: Int) -> Unit
 ) {
-    LazyColumn(
+    LazyVerticalGrid(
+        columns = GridCells.Adaptive(minSize = 150.dp),
         modifier = Modifier.fillMaxSize(),
-        contentPadding = PaddingValues(20.dp)
+        contentPadding = PaddingValues(20.dp),
+        horizontalArrangement = Arrangement.spacedBy(12.dp),
+        verticalArrangement = Arrangement.spacedBy(12.dp),
     ) {
-        items(games, key = {it.id }) { game ->
-            Text(
-                text = game.name,
-                style = MaterialTheme.typography.titleMedium,
-                modifier= Modifier
-                    .fillMaxWidth()
-                    .clickable {onGameClick(game.id)}
-                    .padding(vertical = 12.dp)
-            )
+        items(games, key = { it.id }) { game ->
+            GameCard(game = game, onClick = { onGameClick(game.id) })
         }
     }
 }
